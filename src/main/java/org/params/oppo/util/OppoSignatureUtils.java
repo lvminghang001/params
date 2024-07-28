@@ -1,4 +1,4 @@
-package org.params.oppo;
+package org.params.oppo.util;
 
 
 import org.apache.commons.codec.binary.Base64;

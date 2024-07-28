@@ -1,10 +1,12 @@
 package org.params.oppo;
 
 import com.alibaba.fastjson.JSON;
-import org.params.common.utils.AES256Util;
 import org.params.common.utils.AESKeyGenerator;
-import org.params.yql.utils.AESUtil;
-import org.params.yql.utils.AesUtils;
+import org.params.oppo.dto.ChannelStandardReqDto;
+import org.params.oppo.util.AesNewUtil;
+import org.params.oppo.util.OppoConstant;
+import org.params.oppo.util.OppoSignatureUtils;
+import org.params.oppo.util.RsaHelper;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,22 +34,12 @@ public class OppoController {
         reqDto.setTimestamp(System.currentTimeMillis()+"");
         Map<String,Object> params=new HashMap<>();
         params.put("mobileNo","18870921236");
-      //  String paramsStr= AES256Util.encrypt(JSON.toJSONString(params));
-        String paramsStr=AesNewUtil.encrypt(JSON.toJSONString(params),aesKey);
+        String paramsStr= AesNewUtil.encrypt(JSON.toJSONString(params),aesKey);
         reqDto.setParams(paramsStr);
         Map<String,String> paramSend=JSON.parseObject(JSON.toJSONString(reqDto),Map.class);
         String sign=OppoSignatureUtils.sign(OppoConstant.ryhPriKeyTest,toSortedString(paramSend));
         reqDto.setSign(sign);
         System.out.println(JSON.toJSONString(reqDto));
-
-//        Map<String,String> send=new HashMap<>();
-//        send.put("key",key);
-//        send.put("version","1.0");
-//        send.put("method","union.login");
-//        send.put("appid","RYH");
-//        send.put("flowNo","RYH82464133366030162540873340");
-//        send.put("timestamp",System.currentTimeMillis()+"");
-//        System.out.println(toSortedString(send));
     }
 
 

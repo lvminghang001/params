@@ -1,4 +1,4 @@
-package org.params.oppo;
+package org.params.oppo.util;
 
 import com.alibaba.fastjson.JSON;
 import org.params.yql.utils.AESUtil;

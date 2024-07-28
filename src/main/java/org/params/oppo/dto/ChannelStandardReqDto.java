@@ -1,4 +1,4 @@
-package org.params.oppo;
+package org.params.oppo.dto;
 
 import lombok.Data;
 
