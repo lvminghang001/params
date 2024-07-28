@@ -53,6 +53,6 @@ public class ChannelStandardReqDto implements Serializable {
     /**
      * 请求时间戳
      */
-    private long timestamp;
+    private String timestamp;
 
 }

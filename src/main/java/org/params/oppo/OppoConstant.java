@@ -114,24 +114,7 @@ public class OppoConstant {
      * }
      * @param args
      */
-    public static void main(String[] args) throws Exception{
-        String aesKey="384FC3D88F757698D71B2DC64DA02206";
-        String key= RsaHelper.encryptByPrivateKey(aesKey,OppoConstant.ryhPriKeyTest);
-        ChannelStandardReqDto reqDto=new ChannelStandardReqDto();
-        reqDto.setKey(key);
-        reqDto.setVersion("1.0");
-        reqDto.setMethod("union.login");
-        reqDto.setAppId("RYH");
-        reqDto.setFlowNo("RYH82464133366030162540873340");
-        reqDto.setTimestamp(System.currentTimeMillis());
-        Map<String,Object> params=new HashMap<>();
-        params.put("mobileNo","18870921236");
-        String paramsStr=AesUtils.encrypt(JSON.toJSONString(params),OppoConstant.ryhPriKeyTest);
-        reqDto.setParams(paramsStr);
-        String sign=OppoSignatureUtils.sign(OppoConstant.ryhPriKeyTest,JSON.toJSONString(reqDto));
-        reqDto.setSign(sign);
-        System.out.println(reqDto);
-    }
+
 
 //    public static String getAESKey() {
 //        try {
