@@ -33,7 +33,7 @@ public class OppoController {
         reqDto.setFlowNo("RYH82464133366030162540873340");
         reqDto.setTimestamp(System.currentTimeMillis()+"");
         Map<String,Object> params=new HashMap<>();
-        params.put("mobileNo","18870921236");
+        params.put("mobileNo","18870936109");
         String paramsStr= AesNewUtil.encrypt(JSON.toJSONString(params),aesKey);
         reqDto.setParams(paramsStr);
         Map<String,String> paramSend=JSON.parseObject(JSON.toJSONString(reqDto),Map.class);
