@@ -2,6 +2,7 @@ package org.params.ryh;
 
 import org.params.common.dto.EncryptUtil;
 
+import org.params.common.utils.RyhRsaUtil;
 import org.springframework.util.DigestUtils;
 
 import java.security.MessageDigest;
@@ -17,8 +18,8 @@ public class RyhTest {
 
     public final static String uatEnCode="i5t9zs843tpPYsXgP0ptE0z73HHLTdKMHdbUcxGYCyWQG0YhzvyM7nL5xuJz27im";
     public static void main(String[] args) {
-        String phone="IWNAnUIpkqtuSNWQyuWh6A==";   //15812341284
-        System.out.println(EncryptUtil.AESdecode(phone, uatEnCode));
+//        String phone="IWNAnUIpkqtuSNWQyuWh6A==";   //15812341284
+//        System.out.println(EncryptUtil.AESdecode(phone, uatEnCode));
 //
 //        String name="ILHr8lectmO0GU8OeMOXiA==";
 //        System.out.println(EncryptUtil.AESdecode(name, uatEnCode));
@@ -38,14 +39,14 @@ public class RyhTest {
 //        //16位，大写
 //        String md516Upper=md532Lower.substring(8, 24).toUpperCase();
 //        System.out.println(md516Upper);
-
-        String input = "25A167D3558C68110BFDE88B46E2784A";
-        System.out.println(convertToLowerCase(input));
-        String md5Hex = calculateMD5(input);
-        System.out.println("MD5 Hash in hex: " + md5Hex);
-        String str="25A167D3558C68110BFDE88B46E2784A";
-        System.out.println(str.matches("^[a-f0-9]{32}$") || str.matches("^[A-F0-9]{32}$"));
-        System.out.println(str.matches("^[A-F0-9]{32}$"));
+//
+//        String input = "25A167D3558C68110BFDE88B46E2784A";
+//        System.out.println(convertToLowerCase(input));
+//        String md5Hex = calculateMD5(input);
+//        System.out.println("MD5 Hash in hex: " + md5Hex);
+//        String str="25A167D3558C68110BFDE88B46E2784A";
+//        System.out.println(str.matches("^[a-f0-9]{32}$") || str.matches("^[A-F0-9]{32}$"));
+//        System.out.println(str.matches("^[A-F0-9]{32}$"));
     }
 
     public static String calculateMD5(String input) {
