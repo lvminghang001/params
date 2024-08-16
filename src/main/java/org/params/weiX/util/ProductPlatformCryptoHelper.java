@@ -11,7 +11,6 @@ import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.params.weiX.dto.EncryptDTO;
 import org.params.weiX.dto.WeiXParamsDto;
 import org.params.weiX.exception.SignException;
-
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.ByteArrayOutputStream;
@@ -110,7 +109,7 @@ public class ProductPlatformCryptoHelper {
         //2.将业务参数转化为Json，使用步骤1产生的秘钥进行加密 等到biz_data
         String bizData = aesEncrypt(content, key);
         //3.使用RSA公钥 加密 “AES秘钥” 得到 secret_key
-        PublicKey publicKey = generateRsaPublicKey(weiXParamsDto.getWeiXPubKey());
+        PublicKey publicKey = generateRsaPublicKey(weiXParamsDto.getRyhPubKey());
         String secretKey = rsaEncryptWithPublicKeyToBase64(publicKey, key.getBytes(UTF_8));
         //4.将channel_code、timestamp、biz_data、secret_key 按照ASCII码升序组成字符串，格式如：biz_data=xxxxx&channel_code=xxx&secret_key=xxxx&timestamp=xxxxx
         //字符串进行MD5(tempStr + MD5Key)操作得到 sign签名

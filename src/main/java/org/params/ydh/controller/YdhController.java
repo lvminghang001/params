@@ -27,7 +27,7 @@ public class YdhController {
     @PostMapping(value = "/auditCallBack")
     public AjaxResult auditCallBack(@Valid @RequestBody RyhAuditResultCallback req) throws Exception {
         RyhRequestVo requestVo=new RyhRequestVo();
-        requestVo.setMarketId(16L);
+        requestVo.setMarketId(52L);
         requestVo.setData(RyhRsaUtil.encryptByPublicKey(JSON.toJSONString(req),publicKey));
         requestVo.setSign(RyhRsaUtil.sign(requestVo.getData(),privateKey));
         requestVo.setProductNo("YiDeHua");
@@ -40,7 +40,7 @@ public class YdhController {
     public AjaxResult orderCallBack(@Valid @RequestBody RyhOrderResultCallBack req) throws Exception {
         req.setUpdateTime(DateUtils.parseDateToStr(DateUtils.YYYY_MM_DD_HH_MM_SS,new Date()));
         RyhRequestVo requestVo=new RyhRequestVo();
-        requestVo.setMarketId(16L);
+        requestVo.setMarketId(52L);
         requestVo.setData(RyhRsaUtil.encryptByPublicKey(JSON.toJSONString(req),publicKey));
         requestVo.setSign(RyhRsaUtil.sign(requestVo.getData(),privateKey));
         requestVo.setProductNo("YiDeHua");

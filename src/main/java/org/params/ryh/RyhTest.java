@@ -18,8 +18,9 @@ public class RyhTest {
 
     public final static String uatEnCode="i5t9zs843tpPYsXgP0ptE0z73HHLTdKMHdbUcxGYCyWQG0YhzvyM7nL5xuJz27im";
     public static void main(String[] args) {
-//        String phone="IWNAnUIpkqtuSNWQyuWh6A==";   //15812341284
-//        System.out.println(EncryptUtil.AESdecode(phone, uatEnCode));
+        String phone="3dPvJ+2YLvW+ukQ9U7sjAQ==";   //15812341284
+    //    System.out.println(EncryptUtil.AESencode(phone, uatEnCode));
+        System.out.println(EncryptUtil.AESdecode(phone, uatEnCode));
 //
 //        String name="ILHr8lectmO0GU8OeMOXiA==";
 //        System.out.println(EncryptUtil.AESdecode(name, uatEnCode));
