@@ -1,10 +1,13 @@
 package org.params.ryh;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.params.common.dto.EncryptUtil;
 
 import org.params.common.utils.RyhRsaUtil;
 import org.springframework.util.DigestUtils;
 
+import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -18,14 +21,19 @@ public class RyhTest {
 
     public final static String uatEnCode="i5t9zs843tpPYsXgP0ptE0z73HHLTdKMHdbUcxGYCyWQG0YhzvyM7nL5xuJz27im";
     public static void main(String[] args) {
-        String phone="3dPvJ+2YLvW+ukQ9U7sjAQ==";   //15812341284
+
+//        BigDecimal bigDecimal=new BigDecimal("5000");
+//        Long value=bigDecimal.setScale(0,BigDecimal.ROUND_DOWN).longValue();
+//        System.out.println(value);
+//
+        String phone="xxMaAtpd2sqXnoNd/2XaZw==";   //15812341284
     //    System.out.println(EncryptUtil.AESencode(phone, uatEnCode));
         System.out.println(EncryptUtil.AESdecode(phone, uatEnCode));
-//
-//        String name="ILHr8lectmO0GU8OeMOXiA==";
-//        System.out.println(EncryptUtil.AESdecode(name, uatEnCode));
-//
-//        String nam2="15398760467";
+////
+////        String name="ILHr8lectmO0GU8OeMOXiA==";
+////        System.out.println(EncryptUtil.AESdecode(name, uatEnCode));
+////
+//        String nam2="15444444146";
 //        System.out.println(EncryptUtil.AESencode(nam2, uatEnCode));
 
 //
@@ -69,6 +77,8 @@ public class RyhTest {
             return null;
         }
     }
+
+
 
     public static String convertToLowerCase(String md5UpperCase) {
         return md5UpperCase.toLowerCase();

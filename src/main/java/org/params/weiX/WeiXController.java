@@ -22,9 +22,10 @@ public class WeiXController {
     @GetMapping(value = "/hitParams")
     public String hitParams(String phone,String phoneNoCardNo,String cardNo) throws Exception {
         JSONObject object=new JSONObject();
-        object.put("phoneNoCardNoMd5",phoneNoCardNo);
+        object.put("phoneNoCardNoMd5",CommonUtils.safeMd5(phoneNoCardNo));
         object.put("phoneNoMd5", CommonUtils.safeMd5(phone));
-        object.put("cardNoMd5",cardNo);
+        object.put("cardNoMd5",CommonUtils.safeMd5(cardNo));
+        object.put("phoneNo", CommonUtils.safeMd5(phone));
         return  doResp(object.toJSONString());
     }
 /**
