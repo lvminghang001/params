@@ -1,0 +1,45 @@
+package org.params.guomei.constants;
+
+/**
+ * @author zhangfuqiang3@gome.com.cn
+ * @version 1.0
+ * @date 2023/12/28
+ * @description: 其他通用常量  如给流量颁发的 capitalCode 和 appointLoanCode
+ **/
+public  interface GmCommonConsts {
+
+    String capitalCode = "R0029"; // 流量方平台编码，由国美分配 此处为F6021为示例
+
+    String successStatus="000000";
+
+    String failStatus="000001";
+
+    String proChannelSignature="aVhPSfxcKpwc6YYiHVXAh5BDycYlGNHWlVTS3zdlvD";
+
+    String testChannelSignature="I5nYxAEkObJJRKArnODWkeV3DDLTalcIv0l6L8RK0s";
+
+    String myProPublicKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNAALziHvfx9jTW5HAMlueZ6D3p1vgk4LiDMDafaPWHDz74bqABNLc/fpEkkB9Yrl3z95ChBx08hAsGry4mPQOE9WxLZKeDeEEdloFUNB8mz4fPSmhXI5rPNa40pFlOIagSBKe7jFYOmA7UBF6jKJFb++wO+mQoKUBbC3DGyBbrwIDAQAB";
+
+    String myProPrivateKey="MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAM0AAvOIe9/H2NNbkcAyW55noPenW+CTguIMwNp9o9YcPPvhuoAE0tz9+kSSQH1iuXfP3kKEHHTyECwavLiY9A4T1bEtkp4N4QR2WgVQ0HybPh89KaFcjms81rjSkWU4hqBIEp7uMVg6YDtQEXqMokVv77A76ZCgpQFsLcMbIFuvAgMBAAECgYAXB0NNnC1eLBL9WzH6Ry3nk3iPmWtGxQtU3V3krWx0JuPq36aVrvUJAjbU8SDxdN+kx+MN0c1ojbCnY7GDgxsXLkX/lCMg0Flm22cwpA0vWWrWZitr/VtIUKEHKrnpKIGXZ8pk08Zs/RSYXXqOUCTfCEbgLBAAVdRWzj8inpqV4QJBAOH0GbPHIU/1vLiSGdVK/a+XTevjxba3w/u2WjMz0s7oYKrkAGQAL9BBTZL2zHjxpaOTpTS7J8xRtpMlOAfp4VcCQQDoQp0sgRvzmfBLKr5fkeVXX1SV/anTWNr//AEFj6Y4AWyzlT+InlGsNEx1TOZQx6w1B6rzs8kWXvQ+BEVURClpAkEAkNF2t7blLu59Kn7Zd888kRIUqx+tVNKrFeVmInMQpfRiIKVJas6D1qJEKfFsVAfs9c5nkEhz1Yx5zA2Kv+eyuQJAJXTAtjGoGVQFDYo6I1169+k20e2TmrLkto2keIofCz8nkZqLIXQuxa+1eOFK71IUMoUnC6A92K69gtbbe2h2qQJAOm3S4JC/e1XxJEswR0owncgP0W5yKXYF13ViEbUkFuqM6P/yZuxdDyqwy/dl7fNgxwsYVhi8juaZjzTb54UD/w==";
+
+    String gomeProPublicKey="";
+
+    String mytestPublicKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDYh/D6k4mDy6fA5W/QAM4/mlT0+x4sDIaSMHn6r837QCsHwqQBeSzBpYzS6xkSFKykKcdYNdHKLnm6Hz0xwdFn3LJ6GKHZ90uiTo+WEawCA6FVBX19T5sOOLfG8BOGtVbSTB7KvbsN+4Vv1oiRchD+KQszhxV1bmf+uUpe5yvupwIDAQAB";
+    // myPrivateKey 代表流量方自己生成的 key
+    String mytestPrivateKey="MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBANiH8PqTiYPLp8Dlb9AAzj+aVPT7HiwMhpIwefqvzftAKwfCpAF5LMGljNLrGRIUrKQpx1g10couebofPTHB0WfcsnoYodn3S6JOj5YRrAIDoVUFfX1Pmw44t8bwE4a1VtJMHsq9uw37hW/WiJFyEP4pCzOHFXVuZ/65Sl7nK+6nAgMBAAECgYBPcRywCmY3BQaQhn0N3uXMvwYxdVp+BcBvrTprh4m2hzXiXH6IjdkmWONAVQH3OL+YYT2iduh32bJOX3y3nykA2duIpo6PnNPuyuO6kKxYnRALBNzyPIkfuyRgOjkEvl+EzFvfzkrf6jQh4x5eAxwNugann2jRd7DrO+ipv0V1QQJBAO0IzxGKhHiruBmK50LTsl4OOaGqTt9/2tS9YuuTUZaVILA46d7/sMJkIl05nFxviJI7Xg6C4YxnJBYHHslt9GcCQQDp2ykEYnOYPEDHdhFYqOL8N7feafu/gzPQRwiypmNCftx4L7PSNY0noEQpE2hf/lLU1NoxNPSKdHLSR9ZuH8vBAj92g/EE1D1oGHP0UX9P6olEfdhS/NRy63p+5DKRlxc0M1wkwFAvL6kxiN+lvShxD1M5ynU8zDP5/5gLa4P5MwECQQDFjy0elCF9eWFsX/UVhk+DrXp6veQ8jRWHnYreiawPL+cG7Z2nNzBRSpZqcQfbGJpXTJ4rtcXk9a1OsfuXuurBAkBBn2HmV9ld/PC8BCUqMdpSekpDNBbb0EcPgkeKLLsvvMfsEU8yfgmWi6bnalw342rEO+UwHisADdd5YfPFHwUG";
+    // gomePublicKey 国美给流量方的公钥
+    String gometestPublicKey="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCOE/Xd8FcaWPsQH9c6WIwKtJ6TB+5PJjl/GkWi6Xui+YyhlVC9rUrKqPxdsFREP83yfVHx8AenyruO9KiCLT4kLdsNZZG+bFgMj3ZNPSSNN/9uXqsOxWTrK+3xwPMI4gtSfVVO+zr+Pxsc25neQIBZ4gPnLdFT670cPhrUtvU0GQIDAQAB";
+
+    /**
+     *
+     *   私钥:MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBALm3sIqVmyJs0L/z8RkjQGOl1f48/vmjPV/TqufWYvEkMHeEizHpWpUq54XTxH7xORGQVev/j/M9H6GIUS01C7mvEHfjUIDZG5s6gkW3Gl+fV/o+H5U8TBAOe0rPE1QhOgeKbk2CGtZmri4GOEvhI/CkC3mz4DAqF4FIkYeh1UXJAgMBAAECgYAmSM2l4+1VDWWDDICZFAFECX2xqVVOlO4kAPhsTm+bEkDDgplHMrmvomaT2fHZ0VRYYI611bsRA3qvy/AgB51g0U42tUERNXWBfjPXW2+D1z8icJ1kMSSeB5xdfNXWaB4DCRv+S/aPOHasiJn80pxkZYXveR64mLjTFdlkJhUReQJBAPSP5KVthuKgGM/e0vhTpWhSr8iAYuKYEB9cQiwN3+WOLzXx3lhocs0fDtg3+D7q0uhN6nc3/zaw62tFeI5FKU8CQQDCZ0JXBGS/vpIS6uTejllfGR4MRN7tVnvHqX3euSRiF32x7DTNDunG2VhEgLKYKDuFzjc31x03cDcRs2gIXClnAkAEXMC2VrLOPg7TPmVC+rL7nmX2TJv28MFw3cNsZ77zqEqdSrgtmYdas1AfeTgbXzLt493nzH7n6dX5Lt8Mop0vAkARbVZKHK+3bKsFnR8FQHeMieDisq3VUuJnxK7u72PukzKGZ6lYFJUqaUN7aJoZ/8lONm1GyTbqSFn3cUDLNw/TAkAYcz2dy4bUsjbDjzt1in/QVsVc3OLqf4VERHkEhuhEGcfU2K0MUthqJIeQ7KHUT4eBqQNsfAje8OWQbKX1A8H5
+     * 公钥:MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC5t7CKlZsibNC/8/EZI0BjpdX+PP75oz1f06rn1mLxJDB3hIsx6VqVKueF08R+8TkRkFXr/4/zPR+hiFEtNQu5rxB341CA2RubOoJFtxpfn1f6Ph+VPEwQDntKzxNUIToHim5NghrWZq4uBjhL4SPwpAt5s+AwKheBSJGHodVFyQIDAQAB
+     * @param isPro
+     * @return
+     */
+    // 回调国美接口地址
+     String proCallBackUrl="";
+
+    String testCallBackUrl="https://static-sit1.gomemyf.com/gmcf-cmc-sit-37-54/gmcf-cmc/rejection/riskCallBack";
+
+}

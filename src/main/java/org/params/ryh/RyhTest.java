@@ -21,41 +21,16 @@ public class RyhTest {
 
     public final static String uatEnCode="i5t9zs843tpPYsXgP0ptE0z73HHLTdKMHdbUcxGYCyWQG0YhzvyM7nL5xuJz27im";
     public static void main(String[] args) {
+//
+//        String text="iPhone XS Max";
+//        System.out.println(text.contains("iphone"));
+//        String phone="17100000090";
+//        System.out.println(EncryptUtil.AESencode(phone, uatEnCode));
 
-//        BigDecimal bigDecimal=new BigDecimal("5000");
-//        Long value=bigDecimal.setScale(0,BigDecimal.ROUND_DOWN).longValue();
-//        System.out.println(value);
-//
-        String phone="xxMaAtpd2sqXnoNd/2XaZw==";   //15812341284
-    //    System.out.println(EncryptUtil.AESencode(phone, uatEnCode));
-        System.out.println(EncryptUtil.AESdecode(phone, uatEnCode));
-////
-////        String name="ILHr8lectmO0GU8OeMOXiA==";
-////        System.out.println(EncryptUtil.AESdecode(name, uatEnCode));
-////
-//        String nam2="15444444146";
-//        System.out.println(EncryptUtil.AESencode(nam2, uatEnCode));
-
-//
-//        String md532Lower = DigestUtils.md5DigestAsHex("19099113525".getBytes());
-//        System.out.println(md532Lower);
-//        //32位，大写
-//        String md532Upper=md532Lower.toUpperCase();
-//        System.out.println(md532Upper);
-//        //16位，小写
-//        String md516Lower =md532Lower.substring(8, 24);
-//        System.out.println(md516Lower);
-//        //16位，大写
-//        String md516Upper=md532Lower.substring(8, 24).toUpperCase();
-//        System.out.println(md516Upper);
-//
-//        String input = "25A167D3558C68110BFDE88B46E2784A";
-//        System.out.println(convertToLowerCase(input));
-//        String md5Hex = calculateMD5(input);
-//        System.out.println("MD5 Hash in hex: " + md5Hex);
-//        String str="25A167D3558C68110BFDE88B46E2784A";
-//        System.out.println(str.matches("^[a-f0-9]{32}$") || str.matches("^[A-F0-9]{32}$"));
-//        System.out.println(str.matches("^[A-F0-9]{32}$"));
+        String workAdcode ="469022";
+        String workProvince = workAdcode.substring(0,2)+"0000";//根据区编码拼接省编码
+        String workCity = workAdcode.substring(0,4)+"00";//根据区编码拼接市编码
+        System.out.println(workProvince+" "+workCity);
     }
 
     public static String calculateMD5(String input) {
