@@ -7,9 +7,11 @@ import org.params.guomei.constants.GmCommonConsts;
 import org.params.guomei.dto.GmData;
 import org.params.guomei.dto.GmReqHead;
 import org.params.guomei.dto.GmResp;
+import org.params.guomei.dto.GuoMeiPushDto;
 import org.params.guomei.utils.DemoSignUtil;
 import org.params.yql.utils.CommonUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.nio.charset.Charset;
@@ -30,15 +32,30 @@ public class GuoMeiController {
 
     //国美制造撞库参数
     @GetMapping(value = "/hitParams")
-    public String hitParams(String phone,String customerName,String cardNo) throws Exception {
+    public String hitParams(@RequestBody JSONObject params) throws Exception {
         JSONObject object=new JSONObject();
         JSONObject reqData=new JSONObject();
-        reqData.put("customerName", CommonUtils.safeMd5(customerName));
-        reqData.put("idNo", CommonUtils.safeMd5(cardNo));
-        reqData.put("phoneNo",CommonUtils.safeMd5(phone));
+//        reqData.put("customerName", CommonUtils.safeMd5(customerName));
+//        reqData.put("idNo", CommonUtils.safeMd5(cardNo));
+//        reqData.put("phoneNo",CommonUtils.safeMd5(phone));
         JSONObject reqHead=new JSONObject();
         reqHead.put("channeId","8520369");
-        object.put("reqData",reqData);
+        object.put("reqData",params);
+        object.put("reqHead",reqHead);
+        RequestParams requestParams=encryptReqMsg(object.toJSONString(),"c7a1e5f2b3d2a8f5",GmCommonConsts.mytestPrivateKey,GmCommonConsts.mytestPublicKey);
+        return JSON.toJSONString(requestParams);
+    }
+
+    @GetMapping(value = "/pushParams")
+    public String pushParams(@RequestBody GuoMeiPushDto params) throws Exception {
+        JSONObject object=new JSONObject();
+        JSONObject reqData=new JSONObject();
+//        reqData.put("customerName", CommonUtils.safeMd5(customerName));
+//        reqData.put("idNo", CommonUtils.safeMd5(cardNo));
+//        reqData.put("phoneNo",CommonUtils.safeMd5(phone));
+        JSONObject reqHead=new JSONObject();
+        reqHead.put("channeId","8520369");
+        object.put("reqData",params);
         object.put("reqHead",reqHead);
         RequestParams requestParams=encryptReqMsg(object.toJSONString(),"c7a1e5f2b3d2a8f5",GmCommonConsts.mytestPrivateKey,GmCommonConsts.mytestPublicKey);
         return JSON.toJSONString(requestParams);
