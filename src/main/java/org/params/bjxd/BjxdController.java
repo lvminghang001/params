@@ -5,12 +5,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.io.IOException;
 
+/**
+ *    回调模拟线上减免审批通过
+ */
 @RequestMapping(value = "/bjxd")
 @RestController
 public class BjxdController {
+
+    // 请求参数
+    // 192.168.100.218:10086/bjxd/callBack?prod=jxhln
+    public static String reqParam = """
+            {
+                "data": {
+                    "instanceCode": "112278",
+                    "status": "APPROVED"
+                },
+                "notifyType": "1"
+            }
+            """;
+
     @PostMapping(value = "/callBack")
     public String callBack(@RequestBody  String json,String prod) throws IOException{
         String timestamp = String.valueOf(System.currentTimeMillis());
