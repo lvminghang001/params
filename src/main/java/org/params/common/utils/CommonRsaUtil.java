@@ -15,7 +15,7 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RyhRsaUtil {
+public class CommonRsaUtil {
 
     //定义加密方式
     public static final String KEY_RSA = "RSA";
@@ -29,14 +29,15 @@ public class RyhRsaUtil {
     private final static int MAX_ENCRYPT_BLOCK = 117;
     //RSA最大解密大小
     private final static int MAX_DECRYPT_BLOCK = 128;
-    private final static String public_key_xa = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcIukbCQrqnjeccxCYCI04IIxC52BB6PN3ukCCAdzBh7GEUCwT4F/5YbZ5Ctq27TxEkpW42p6X5XSO8Zym+J/oJ7eQ3HHm+8d0yJvwH8DGhG0gsW2Z2ei5bRPpm7DlNzUFq8hkVPl0DuFUym9R7MJbp/5ILJwyP4pyvdP1VYpolQIDAQAB";
-    private final static String private_key_xa = "MIICdQIBADANBgkqhkiG9w0BAQEFAASCAl8wggJbAgEAAoGBAJwi6RsJCuqeN5xzEJgIjTggjELnYEHo83e6QIIB3MGHsYRQLBPgX/lhtnkK2rbtPESSlbjanpfldI7xnKb4n+gnt5Dcceb7x3TIm/AfwMaEbSCxbZnZ6LltE+mbsOU3NQWryGRU+XQO4VTKb1Hswlun/kgsnDI/inK90/VVimiVAgMBAAECgYAwab6/7EjfQNnbf+44RgaLzcPQBvBY34OGr1DLPwqVU57eeQGB1EPODtdGpu/0YpEabh1QqTEdxj8jB5XcTCFAm0+kPvlcq77na9YrpyeqwRY55LI8I3jQYjM0s8iNdV5EAUu+HlM3Uk5i7xenE2IBbT8Uq3Q/vcygyvFLApdcoQJBAPX7Gf0LxX/2cNDoDPz4KAlM7OaR0pfVwtOu1YKsKVI2VpdGCTWTP8ErSCt1ksaB41wB3gA+K0DNlWCelNmZERkCQQCifvrj0CiMtymmoNu/3JZ1kgYTcgjSHjPMlbuClbtNrGpgkLmOERXcVaXay4+eEYuk1PjZbKNop8sw3PdRspbdAkB2GwHIcR18KmzSsYiC8ffvN0NMFdoi0x0/nGOh4V3ZvoNnENadJb1n14tIaqR1sanj5HWecjs8WzmM8beQnyEJAkB1pm5MZzgUucDETg8M2M9vDGytw5CzYP6sD3UV1Qcp872JcP+H5sLnJnPQ+DVhgt6SV0hdU5T0fxhUpofCdQVZAkB6iRiv0uvslbT0lYLYWU0lGOHI083p6/tu4I748g6AXwMDdOKJPUssCrxYUQHzruIe1i7htg6fTuJqN1ycCdWX";
-    private final static String public_key_third = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCRMI86LAfzflOTQYWrZh/KZjqoJyuoOYI/ALup5glYorReeoyfleuXXG7bpu6OcMtsZXQ+si+Iimu5nIuGtDPOcB0BhuWcBlf8Xbo6EVM6oVQXcpYm7GRZ98tPrqwEjY6ECtCMS63rqHIEprgXg+HvDDa5Y6AiSNHAm6FRHwhkmQIDAQAB";
-    private final static String private_key_third = "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJEwjzosB/N+U5NBhatmH8pmOqgnK6g5gj8Au6nmCViitF56jJ+V65dcbtum7o5wy2xldD6yL4iKa7mci4a0M85wHQGG5ZwGV/xdujoRUzqhVBdylibsZFn3y0+urASNjoQK0IxLreuocgSmuBeD4e8MNrljoCJI0cCboVEfCGSZAgMBAAECgYBCs2hZdTkB6BtFH2jlYTlhpq1z6urnkeQARbnxR7krezQZ43sPJbTiCJj1WC9oSPFrjwBkfT/RHqZ20zBWZhsWHs8qMW1VULvqzdUhOp4mpxHvcyYi8IAaltoSphKOJqT7F48LEyR17k2GlVz+Mpt1lonXCr2xK/mW9z/hC2MewQJBAME6t1u3eGubu4nAsVDMumUo5H1RtEHhmbD0VLqYLYakOVkKxrRPo7yvtS8KREXizdJRwXv3dkcxOyPua4vixb0CQQDAWsgj1oDyXvccjfc4uaR68qbKOug4I+cGJToCJdRulnljBOhdp98Ta5vu9XSx/mFAbeq0KP7pJlRH2vWIOmINAkAccvmmDkgzh7U/3df9bncPB8tETDA+9uk67W5AHsGtLianXnfM+mDAGhqR92//3hmxmonjJ5cJek0byDGbYeL9AkEAsOVL1Zl48GxhOQNd7e7b0q3AsY5G7QondcFafYsot6Lucx+aSjcNsaBuwO0+qkpUSZpME+73rpavP32f++4lKQJATP6GTjkJbLDry9SBQruzDgnLS59wJLdj+ALBOI9VPLpgfwhmdaZgNvtaHJWCuBBOkPDzRsM0y0ShEQyT8dhZWQ==";
-    public final static String ceshi_public = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDgc8Bl2uJjxqX5f4DSdYF66+B8tExxEbTLEOysI1ySmcLhZ4OSchaGMluHaRSIsYLM0iA65i+Jg45/xgdG8Chjvb7spjy4YSwNDlBtWwJ9Ij/Om1dNyM1cspigoYW/hY6beVdaN2pdCwOEamoDmT8/uLHR/fKxgwH2oTaMwYD9WwIDAQAB";
     public final static String sss_private = "MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBALYRDC71/XNyjDaIZf4NXeJ292FG3Q+N8Z/+UHPcgE39Ffxvy3AOIS+GB0jvcSDoYN55Vqwgt0e6TXERw8jpwfOWWfCW5z95yzbB3rpALKjp6AAmb6ZSJNaSI50At1+4lDckVmi3dw+ltLBoy3z4onbWGQhnA64R/5ww7gAJ4LLNAgMBAAECgYBunr8DTWy4F1H/1DH8AQ0ZCuVVUmQADmNPrYoeS0wdlnckUJyPsdYR9OI6O1lGAErTAXBa1unlB9oDqCKH0ReIq/GjHw1arvuR6Ayh+KhtwHHDCOga7FH7JprqEUwgDApeverda5zSkDKrAcpHTAbl7MW4QFPKAyZ0tc3uiYgktQJBAO/6XYpq/S2mM6I0WoVjd5i+LvIAjwHLR4uh/7o58Gmer/sdFv7+QUMMT6Nbwm6Td2xm9glGCdOWSIdS1PDO1PMCQQDCOOCV6sHpqYDuPDYZcf4Dgm0ht8x7oY+94F5QW35QGCgNuq1C6HCXWwJOPuSJ4JfD4prUa+tRWt5hoNl2+0k/AkEAmcypupaLIICOQvyuryJqedgZmjvFa27usYznqmCLtgVf395q6I3nIaN4PsgGOnwEY9MxCAx9K7/7R89MbfEBBQJBAJ462D1K1FAY2AE+7JQuWlNhnqcppl3ScdivQicVYwK9q2QEAcPQummUq3wzoNzzLLFZm+oTQdM1xJalBIX6kuECQQDrjz1D8wzHtT0c7mXvnyakEnXjjFGkOymhtx6NVIVSbCYBMtRnQt39mFfxpJ/c/QkWGqUcJAYbD6pru8GCpBtW";
     public final static String sss_public = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC2EQwu9f1zcow2iGX+DV3idvdhRt0PjfGf/lBz3IBN/RX8b8twDiEvhgdI73Eg6GDeeVasILdHuk1xEcPI6cHzllnwluc/ecs2wd66QCyo6egAJm+mUiTWkiOdALdfuJQ3JFZot3cPpbSwaMt8+KJ21hkIZwOuEf+cMO4ACeCyzQIDAQAB";
-    public static void main(String[] args) {
+
+    /**
+     *   模拟请求过程
+     *   请求方： 使用三方公钥加密数据，我方私钥签名。
+     *   接收方： 使用请求方公钥验签名，使用己方私钥解密数据。
+     */
+    public static void mockRsaRequest(){
         //生成公私钥
         Map<String, Object> xaKeyMap = createKey();
         String publicKeyXa = getPublicKey(xaKeyMap);
@@ -58,15 +59,15 @@ public class RyhRsaUtil {
         //请求方:三方公钥加密，己方私钥签名
         //验签方:三方公钥验签，己方私钥解密
 
-        System.out.println("============================================融优花请求开始======================================================================");
-        //融优花请求三方, 三方公钥加密， 融优花私钥加签
+        System.out.println("============================================请求开始======================================================================");
+        //请求三方, 三方公钥加密， 私钥加签
         String encryptByXa = encryptByPublicKey(requestJsonStr, publicKeyThird);
         // 产生签名
         String signXa = sign(encryptByXa, privateKeyXa);
-        System.out.println("融优花请求签名:" + signXa);
-        System.out.println("============================================融优花请求结束======================================================================");
+        System.out.println("请求签名:" + signXa);
+        System.out.println("============================================请求结束======================================================================");
         System.out.println("============================================三方解签开始======================================================================");
-        //三方解析: 融优花公钥验签， 己方私钥解密
+        //三方解析: 公钥验签， 己方私钥解密
         //验证签名
         boolean verify = verify(encryptByXa, publicKeyXa, signXa);
         System.out.println("三方验证签名:" + verify);
@@ -83,15 +84,15 @@ public class RyhRsaUtil {
         String signThird = sign(encryptByThird, privateKeyThird);
         System.out.println("三方请求签名:" + signThird);
         System.out.println("============================================三方请求结束======================================================================");
-        System.out.println("============================================融优花解签开始======================================================================");
+        System.out.println("============================================解签开始======================================================================");
         //验证签名
         boolean verifyXa = verify(encryptByThird, publicKeyThird, signThird);
-        System.out.println("融优花验证签名:" + verifyXa);
+        System.out.println("验证签名:" + verifyXa);
 
         String decryptByXa = decryptByPrivateKey(encryptByThird, privateKeyXa);
-        System.out.println("融优花私钥加密：" + decryptByXa);
+        System.out.println("私钥加密：" + decryptByXa);
 
-        System.out.println("============================================融优花解签结束======================================================================");
+        System.out.println("============================================解签结束======================================================================");
 
         String encryptByThird2 = encryptByPublicKey(requestJsonStr, sss_public);
         System.out.println("测试数据:" + encryptByThird2);
@@ -100,7 +101,14 @@ public class RyhRsaUtil {
         String data = "LcDTvLux/98+sMXbBFlrqyK1FtVfBbW2TW+okRR4lHz1lZTzr80oF92eSMmMyEzXGPKIX/QVJ38OHgwn3PnhoCtyqLXE+CI7wy9fibHfS6x9VwmieLgX97gyID97ZRM1Rps8dh6Iwmmwt3De5+Mt3oDgrnsMPB23D+QzTSXYohRNm4plNL1o7bPPJwyKCW8hGqMnDaQOeCKDCklXfwEi+VvxZqVm2mOMBHE0RAUEumNP7GU4i/o4t6zVoYzKLHZTXCSUbFj0tp4QdXW8uH9Wmyl55uO8WXnfksTXVEgMNQkiTc559MGwhztxdtHjNuPI1P2szecPLcY1tR47WlIl4w==";
         String ssss = decryptByPrivateKey(data, sss_private);
         System.out.println("测试解密:" + ssss);
+    }
 
+    public static void main(String[] args) {
+        String privateKey = "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAL/GdzcW1EHbYdy5/eRjOzVAlZQydPMYSolYrEUg416+NJw0APRWFU4R6kZIDsM4HvPVYUaQ/ONloSJ8eWincBQAzNdwTKjTU70ST1bF3kARvs5+N+ne8efcQZwDwkFeJDfjtUCr/NTAK7RGBW+wKFRKwB4gtifhFmW7B5zPeUbdAgMBAAECgYApJr5ILPbpFtleEu8fRgfbentebKFZ1LmR1VxKDS+dEfWaGzKlO5+gvAlogWfhjjZeHkicatpJNXKpQsqOoXdUBF9aKCNjLg772VVfqBrmyas0lDaGJy9SLxepFFYhPSWFHwzuHP2mwSB9izR56+HJ6c5mXy90GOkh9GjxPZeZ4QJBAOTwFffPcSRcmss+9CA4h4MgFlOLja8JrkVcSGMyg9i4QK62TPTxYRia7nvT+0YKUnEV7wKDeAZ47qq69CsVFekCQQDWccx+RJ25z9VlrcHhb8j3cAWrvIANzYNl94JWk9NhABXHbSL5OEYvfSL/sZtv20/vB8Q7ma3KUYoc+J5BmizVAkEAg73I1nawI/2KMiVC9HuzN3iygFcRLEXE3DMTkMnT51V4G1HajSWN+0vEqss8kHyGHn9Br8+ZtRfIN8UnltcmaQJBALIzBre21UrfRnmkFoT7m4ji8hNwJQlTSmmlcA358aGdrHt4WaO3+7rixf6s3HnrSVVcotjUL/L8J0VD5F6ne7ECQCQa99zOcuTo56McEzQE3TaP+s3/u34/p3uWfD1y/BDIG/e6WVXrDwyLNAVQh1opoV+ZICsOBcIWaPVAbmy4m6U=";
+        String publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/xnc3FtRB22Hcuf3kYzs1QJWUMnTzGEqJWKxFIONevjScNAD0VhVOEepGSA7DOB7z1WFGkPzjZaEifHlop3AUAMzXcEyo01O9Ek9Wxd5AEb7Ofjfp3vHn3EGcA8JBXiQ347VAq/zUwCu0RgVvsChUSsAeILYn4RZluwecz3lG3QIDAQAB";
+//        mockRsaRequest();
+        String signXa = sign("test", privateKey);
+        System.out.println(verify("test", publicKey, signXa));
     }
 
     /**

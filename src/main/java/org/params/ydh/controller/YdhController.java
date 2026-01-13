@@ -7,7 +7,7 @@ import org.params.common.dto.RyhAuditResultCallback;
 import org.params.common.dto.RyhOrderResultCallBack;
 import org.params.common.dto.RyhRequestVo;
 import org.params.common.utils.DateUtils;
-import org.params.common.utils.RyhRsaUtil;
+import org.params.common.utils.CommonRsaUtil;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +28,8 @@ public class YdhController {
     public AjaxResult auditCallBack(@Valid @RequestBody RyhAuditResultCallback req) throws Exception {
         RyhRequestVo requestVo=new RyhRequestVo();
         requestVo.setMarketId(52L);
-        requestVo.setData(RyhRsaUtil.encryptByPublicKey(JSON.toJSONString(req),publicKey));
-        requestVo.setSign(RyhRsaUtil.sign(requestVo.getData(),privateKey));
+        requestVo.setData(CommonRsaUtil.encryptByPublicKey(JSON.toJSONString(req),publicKey));
+        requestVo.setSign(CommonRsaUtil.sign(requestVo.getData(),privateKey));
         requestVo.setProductNo("YiDeHua");
         System.out.println(JSONObject.toJSONString(requestVo));
         return AjaxResult.success(requestVo);
@@ -41,8 +41,8 @@ public class YdhController {
         req.setUpdateTime(DateUtils.parseDateToStr(DateUtils.YYYY_MM_DD_HH_MM_SS,new Date()));
         RyhRequestVo requestVo=new RyhRequestVo();
         requestVo.setMarketId(52L);
-        requestVo.setData(RyhRsaUtil.encryptByPublicKey(JSON.toJSONString(req),publicKey));
-        requestVo.setSign(RyhRsaUtil.sign(requestVo.getData(),privateKey));
+        requestVo.setData(CommonRsaUtil.encryptByPublicKey(JSON.toJSONString(req),publicKey));
+        requestVo.setSign(CommonRsaUtil.sign(requestVo.getData(),privateKey));
         requestVo.setProductNo("YiDeHua");
         return AjaxResult.success(requestVo);
     }
