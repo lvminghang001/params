@@ -22,19 +22,16 @@ public class RyhTest {
 
     public final static String uatEnCode="i5t9zs843tpPYsXgP0ptE0z73HHLTdKMHdbUcxGYCyWQG0YhzvyM7nL5xuJz27im";
     public static void main(String[] args) {
-        for(int i=0;i<1000000;i++){
-            String result=HttpUtil.get("https://ryhtest.hzbxhd.com/prod-api/app/sampling/weixin/testMq?msg=213123123&queue=CHANNEL_HIT_RECALL_QUEUE");
-            String result2=HttpUtil.get("https://ryhtest.hzbxhd.com/prod-api/app/sampling/weixin/testMq2?msg=213123123&queue=REGISTER_NOT_APPLY_QUEUE");
-            String result3=HttpUtil.get("https://ryhtest.hzbxhd.com/prod-api/app/sampling/weixin/testMq3?msg=213123123&queue=NOTICE_REGISTER_OR_INFO_QUEUE");
-            System.out.println(1111);
-        }
 
 ////
 //        String text="iPhone XS Max";
 //        System.out.println(text.contains("iphone"));
-//        String phone="HIKK5AHZZrhZCoZxXxduhg==";
-//        System.out.println(EncryptUtil.AESdecode(phone, uatEnCode));
+        String phone="9LXWLd7pCGpeHNom40PL6w==";
+        System.out.println(EncryptUtil.AESdecode(phone, uatEnCode));
+        System.out.println(EncryptUtil.AESencode("412726199707264626",uatEnCode));
 //
+
+
 ////        String workAdcode ="469022";
 ////        String workProvince = workAdcode.substring(0,2)+"0000";//根据区编码拼接省编码
 ////        String workCity = workAdcode.substring(0,4)+"00";//根据区编码拼接市编码
@@ -66,6 +63,8 @@ public class RyhTest {
     public static String convertToLowerCase(String md5UpperCase) {
         return md5UpperCase.toLowerCase();
     }
+
+
 
 
 

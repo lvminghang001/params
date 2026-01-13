@@ -1,5 +1,6 @@
 package org.params.guomei;
 
+import cn.hutool.core.collection.ConcurrentHashSet;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.parser.Feature;
@@ -20,8 +21,10 @@ import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.Signature;
 import java.security.spec.PKCS8EncodedKeySpec;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import static org.params.guomei.utils.DemoSignUtil.*;
 
@@ -176,15 +179,18 @@ public class GuoMeiController {
     }
 
     public static void main(String[] args) throws Exception{
-        JSONObject object=new JSONObject();
-        JSONObject reqData=new JSONObject();
-        reqData.put("phone","18870936109");
-        JSONObject reqHead=new JSONObject();
-        reqHead.put("channeId","8520369");
-        object.put("reqData",reqData);
-        object.put("reqHead",reqHead);
-        RequestParams requestParams=encryptReqMsg(object.toJSONString(),"c7a1e5f2b3d2a8f5",GmCommonConsts.mytestPrivateKey,GmCommonConsts.mytestPublicKey);
-        System.out.println(JSON.toJSONString(requestParams.getHeaders()));
+//        JSONObject object=new JSONObject();
+//        JSONObject reqData=new JSONObject();
+//        reqData.put("phone","18870936109");
+//        JSONObject reqHead=new JSONObject();
+//        reqHead.put("channeId","8520369");
+//        object.put("reqData",reqData);
+//        object.put("reqHead",reqHead);
+//        RequestParams requestParams=encryptReqMsg(object.toJSONString(),"c7a1e5f2b3d2a8f5",GmCommonConsts.mytestPrivateKey,GmCommonConsts.mytestPublicKey);
+//        System.out.println(JSON.toJSONString(requestParams.getHeaders()));
+       Thread t=new Thread();
+       t.start();
+       t.join();
     }
 
 }

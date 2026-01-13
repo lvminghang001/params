@@ -1,21 +1,12 @@
 package org.params.xiaoan.controller;
 
-import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import org.params.common.AjaxResult;
+import org.params.common.dto.EncryptUtil;
 import org.params.xiaoan.utils.*;
-import org.params.yql.dto.YqlHitParams;
-import org.params.yql.dto.YqlRequest;
-import org.params.yql.enums.YqlEnums;
-import org.params.yql.utils.AesUtils;
 import org.params.yql.utils.CommonUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +17,8 @@ import java.util.Map;
 @RequestMapping(value = "/xiaoan")
 public class XiaoAnController {
 
+    public final static String uatEnCode="i5t9zs843tpPYsXgP0ptE0z73HHLTdKMHdbUcxGYCyWQG0YhzvyM7nL5xuJz27im";
+
     @PostMapping(value = "/params")
     public ApiEncryptReq params(@RequestBody JSONObject jsonObject) throws Exception {
         String ddfqKey = SecureUtils.AesUtil.generateDdfqKey(ChannelType.RONG_YOU_HUA.name());
@@ -35,6 +28,11 @@ public class XiaoAnController {
         apiEncryptReq.setIv(iv);
         apiEncryptReq.setData(decryptedData);
         return apiEncryptReq;
+    }
+
+    @GetMapping(value = "/getRealPhone")
+    public String getRealPhone(String phone)  {
+             return   EncryptUtil.AESdecode(phone,uatEnCode);
     }
 
     @PostMapping("/fullCreateParams")
@@ -100,9 +98,12 @@ public class XiaoAnController {
 
 
     public static void main(String[] args) {
-        JSONObject jsonObject=new JSONObject();
-        jsonObject.put("phone","18901235896");
-        jsonObject.put("channelSign","5331");
+//        String params_one= """
+//                """;
+//
+//        JSONObject jsonObject=new JSONObject();
+//        jsonObject.put("phone","18901235896");
+//        jsonObject.put("channelSign","5331");
 //        String ddfqKey = SecureUtils.AesUtil.generateDdfqKey(ChannelType.RONG_YOU_HUA.name());
 //        String iv=SecureUtils.AesUtil.getIv();
 //        String decryptedData = SecureUtils.AesUtil.encryptCbc(jsonObject.toJSONString(), ddfqKey, iv);
@@ -110,7 +111,12 @@ public class XiaoAnController {
 //        apiEncryptReq.setIv(iv);
 //        apiEncryptReq.setData(decryptedData);
 //        System.out.println(JSON.toJSONString(apiEncryptReq));
-       // String sign=SecureUtils.AesUtil.encrypt(jsonObject.toJSONString(),"b4c4bf93637e4864");
-        System.out.println(SignUtils.encrypt(jsonObject.toJSONString(), "2%8iTpSi"));
+//        String sign=SecureUtils.AesUtil.encrypt(jsonObject.toJSONString(),"b4c4bf93637e4864");
+//        System.out.println(SignUtils.encrypt(jsonObject.toJSONString(), "2%8iTpSi"));
+//        Long aa=6L;
+//        String bb="6";
+//        System.out.println(bb.equals(String.valueOf(aa)));
+        String ddfqKey = SecureUtils.AesUtil.generateDdfqKey(ChannelType.RONG_YOU_HUA.name());
+        System.out.println(ddfqKey);
     }
 }

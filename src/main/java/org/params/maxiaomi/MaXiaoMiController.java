@@ -20,11 +20,11 @@ public class MaXiaoMiController {
     //国美制造撞库参数
     @GetMapping(value = "/params")
     public String params(@RequestBody String params) throws Exception {
-        String key="097626a2aceb6f64";
+        String key="2de132c916a746ce";
         String data= SecureUtils.AesUtil.encrypt(params,key);
         MxmPushReq mxmPushReq=new MxmPushReq();
         mxmPushReq.setTimestamp(System.currentTimeMillis()+"");
-        mxmPushReq.setChannel("ro5NtnbnrkB9Sw9ZwGhPOuRQ4bDFkOPXsVHUlYBjWq");
+        mxmPushReq.setChannel("QJ3mXGPGJq9rCUnBhzvC9C3JqpkrCyLgQV4osTBaZz");
         mxmPushReq.setData(data);
 //        String sign= """
 //                channel=%s&data=%s&timestamp=%s%s
@@ -59,5 +59,10 @@ public class MaXiaoMiController {
             buff = buff.substring(0, buff.length() - 1);
         }
         return buff;
+    }
+
+    public static void main(String[] args) {
+        Boolean aa=false;
+        System.out.println(!aa);
     }
 }

@@ -24,6 +24,8 @@ public class AES256Util {
      */
     private static final String PASSWORD = "MEqLCnG2Q0IfauMDbZq1lP46uP4BHsiv";
 
+    private static final String pwd2="0123456789abcdef";
+
     /**
      * AES256加密
      * @param content
@@ -35,7 +37,7 @@ public class AES256Util {
                 return "";
             }
             //根据给定的字节数组构造一个密钥。enCodeFormat：密钥内容；"AES"：与给定的密钥内容相关联的密钥算法的名称
-            SecretKeySpec key = new SecretKeySpec(PASSWORD.getBytes(StandardCharsets.UTF_8), "AES");
+            SecretKeySpec key = new SecretKeySpec(pwd2.getBytes(StandardCharsets.UTF_8), "AES");
             //将提供程序添加到下一个可用位置
             Security.addProvider(new BouncyCastleProvider());
             //创建一个实现指定转换的 Cipher对象，该转换由指定的提供程序提供。

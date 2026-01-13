@@ -117,4 +117,9 @@ public class SizeOfAgent {
         return result;
     }
 
+    public static void main(String[] args) {
+        String mobile="18870936129";
+         Boolean flag=mobile != null && mobile.matches( "^1[3-9]\\d{9}$");
+        System.out.println(flag);
+    }
 }
