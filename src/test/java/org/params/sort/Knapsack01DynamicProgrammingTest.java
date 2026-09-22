@@ -1,7 +1,7 @@
 package org.params.sort;
 
 import org.junit.jupiter.api.Test;
-import org.params.sort.Afternoon.Knapsack01DynamicProgramming;
+import org.params.sort.Afternoon.动态规划.Knapsack01DynamicProgramming;
 
 import java.util.List;
 

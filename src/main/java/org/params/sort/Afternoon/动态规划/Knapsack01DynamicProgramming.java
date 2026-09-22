@@ -1,4 +1,4 @@
-package org.params.sort.Afternoon; // 声明当前类所在的包。
+package org.params.sort.Afternoon.动态规划; // 声明当前类所在的包。
 
 import java.util.ArrayList; // 导入动态数组实现类。
 import java.util.Collections; // 导入集合反转工具类。

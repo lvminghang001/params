@@ -1,4 +1,4 @@
-package org.params.sort.Afternoon; // 声明当前示例类所在的包。
+package org.params.sort.Afternoon.动态规划; // 声明当前示例类所在的包。
 
 /** 演示如何调用 0/1 背包动态规划求解器。 */
 public class Knapsack01DynamicProgrammingDemo { // 定义示例程序类。
